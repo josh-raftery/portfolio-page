@@ -36,7 +36,7 @@ function AboutMe() {
           the new challenge of creating good UI/UX.
         </h2>
         <h2 className="about-me-text">
-          <Link to="/projects" ><a className="link link-primary">Here</a></Link> is a showcase of what I have been able to create as a full-stack
+          <Link to="/projects" ><a className="link link-success">Here</a></Link> is a showcase of what I have been able to create as a full-stack
           devleloper.
         </h2>
       </div>

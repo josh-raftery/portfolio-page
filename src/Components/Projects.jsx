@@ -72,7 +72,7 @@ function Projects() {
                     </div>
                 </div>
             <div className="divider"></div>
-            <a href="https://main--adorable-strudel-b4aa70.netlify.app" target="_blank">
+            <a href="https://joshraftery.netlify.app" target="_blank">
                 <div className="card card shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1),_0_10px_10px_-5px_rgba(0,0,0,0.04),_0_-10px_20px_-5px_rgba(0,0,0,0.1)]">
                     <div className="card-body">
                         <h2 className="card-title">Portfolio Page</h2>
