@@ -31,9 +31,14 @@
 .style-list{
   display: table;
   margin-inline: auto;
-  
 }
 
+.type-about-me{
+  margin-top: 2rem;
+  font-family: monospace;
+  font-weight: bold;
+
+}
 
 .card-title{
   display: flex;

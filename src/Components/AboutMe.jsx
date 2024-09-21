@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Github from "./Github";
 import { useContext } from "react";
 import { ThemeContext } from "../Contexts/ThemeContext";
+import TypeAboutMe from "./TypeAboutMe";
 
 function AboutMe() {
 
@@ -26,6 +27,7 @@ function AboutMe() {
           </button>
         </a>
       </div>
+      <TypeAboutMe/>
       <div className="aboutme-text">
         <h2 className="about-me-text" >
           Leveraging my previous 2 years experience as a Unidata software
