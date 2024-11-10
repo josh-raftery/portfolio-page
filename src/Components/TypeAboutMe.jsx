@@ -3,6 +3,7 @@ import { TypeAnimation } from 'react-type-animation';
 export default function TypeAboutMe(){
   return (
     <TypeAnimation
+
       sequence={[
         'Node.js',
         3000,

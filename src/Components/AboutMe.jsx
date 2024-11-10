@@ -9,7 +9,7 @@ function AboutMe() {
   const {dark} = useContext(ThemeContext)
 
   return (
-    <>
+    <div className="text-center">
       <div className="intro-text">
         <h1>Hi, I'm</h1>
         <h1 style={{ color: "#32de84" }}>Josh.</h1>
@@ -42,7 +42,7 @@ function AboutMe() {
           devleloper.
         </h2>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -1,11 +1,130 @@
+import { useState } from "react";
 import Github from "./Github";
 
 function Projects() {
+  const projects = [
+    {
+      title: "PulseWire",
+      id: 1,
+      url: "https://pulsewire.netlify.app/",
+      img: "/assets/pulsewire.gif",
+      description: `Features:
+ • View Articles
+ • Filter Articles
+ • Article Pagination
+ • Search Bar
+ • Post Article
+ • View Topics
+ • View Article
+ • Like, Dislike Article
+ • Share Article
+ • Preview Top Articles
+ • Preview Top Articles Pagination
+ • Preview Related Articles
+ • Preview Related Articles Pagination
+ • View Comments
+ • Like, Dislike Comments
+ • Comment Pagination
+ • Day/Night Theme Switcher
+ • Sign In, Sign Up and Sign Out.
 
+Design Choices:
+ • Accessible design such as optimistic rendering and intuitive error handling around input fields.
+ • Mobile first design with dynamic page styling catering for mobile, tablet and monitor screens.
+ • Modals implemented to restrict access to user only features.
+ • Dynamic SVG icons - adjusting to browser theme.`,
+      summary:
+        "News site application - read, comment on, post, like and share news articles.",
+      technologies: ["React.js", "CSS", "HTML", "TailwindCSS"],
+    },
+    {
+      title: "PulseWire API",
+      id: "2",
+      img: "/assets/pulsewireAPI.png",
+      url: "https://be-nc-news-ml9n.onrender.com/api",
+      description: `Features:
+        • PostgreSQL database.
+    • MVC pattern SQL database querying.
+    • Express.js API route handling.
+    • Jest automated testing suite with 100+ tests including database seeding.`,
+      summary: "API - serves up a JSON file for the front-end to ulilise",
+      technologies: ["Node.js", "Express.js", "Jest", "PostgreSQL"],
+    },
+    {
+      title: "PrepMaster",
+      img: "/assets/prepmaster.gif",
+      id: "3",
+      url: "https://be-prep-master.vercel.app/",
+      description: `Features:
+        • PostgreSQL database.
+    • MVC pattern SQL database querying.
+    • Express.js API route handling.
+    • Jest automated testing suite with 100+ tests including database seeding.`,
+      summary: "API - serves up a JSON file for the front-end to ulilise",
+      technologies: ["Next.js", "CSS", "HTML", "MongoDB", "TailwindCSS", "Mongoose"],
+    }
+  ];
+  const [summary, setSummary] = useState({});
+  const [toggleSummary, setToggleSummary] = useState(false)
+
+  console.log(toggleSummary)
 
   return (
-    <>
-        <div className="flex w-full flex-col border-opacity-50">
+    <div className="gap-5 grid">
+      {projects.map((project) => {
+        return (
+          <div
+            onClick={() => setToggleSummary(true)}
+            key={project.id}
+            className="rounded-3xl relative max-w-[500px] m-[auto]"
+          >          
+            <img
+              className="rounded-3xl opacity-100"
+              onMouseEnter={() => setSummary({ [project.id]: true })}
+              onMouseLeave={() => setSummary({ [project.id]: false })}
+              src={project.img}
+              alt={project.summary}
+            />
+            <div
+              className={`absolute inset-0 rounded-3xl transition-bg-opacity duration-1000 bg-black ${
+                summary[project.id] ? "bg-opacity-80" : "bg-opacity-0"
+              }`}
+              onMouseEnter={() => setSummary({ [project.id]: true })}
+              onMouseLeave={() => setSummary({ [project.id]: false })}
+            >
+              {summary[project.id] && (
+                <div className="p-4 text-white absolute bottom-0 m-4 gap-5 grid">
+                  <h2 className="text-3xl font-bold text-align-left">
+                    {project.title}
+                  </h2>
+                  <p className="">{project.summary}</p>
+                  <div className="flex flex-wrap gap-3">
+                    {project.technologies.map((technology) => {
+                      return (
+                        <div className="rounded-xl bg-gray-500 bg-opacity-90 p-1 relative">
+                          <p className="text-[#FFFFFF] no-opacity">
+                            <b>{technology}</b>
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className={`sidebar ${toggleSummary && 'sidebar-appear'} bg-green`} >
+              test
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+export default Projects;
+
+/* <div className="flex w-full flex-col border-opacity-50">
             <a href="https://be-nc-news-ml9n.onrender.com/api" target="_blank">
                 <div  className="card shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1),_0_10px_10px_-5px_rgba(0,0,0,0.04),_0_-10px_20px_-5px_rgba(0,0,0,0.1)]">
                     <div className="card-body">
@@ -99,9 +218,4 @@ function Projects() {
                     </div>
                 </div>
             <div className="divider"></div>
-        </div>
-    </>
-  );
-}
-
-export default Projects;
+        </div> */
