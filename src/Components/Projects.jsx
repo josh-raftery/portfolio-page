@@ -74,7 +74,7 @@ Design Choices:
       {projects.map((project) => {
         return (
           <div
-            onClick={() => setToggleSummary(true)}
+            onClick={() => setToggleSummary((currSummary) => !currSummary)}
             key={project.id}
             className="rounded-3xl relative max-w-[500px] m-[auto]"
           >          
@@ -112,9 +112,10 @@ Design Choices:
                 </div>
               )}
             </div>
-            <div className={`sidebar ${toggleSummary && 'sidebar-appear'} bg-green`} >
+            <div className={`sidebar ${toggleSummary ? 'sidebar-appear' : ''} bg-white`} >
               test
             </div>
+            {toggleSummary && <div className="fixed inset-0 bg-black opacity-20 z-5"/>}
           </div>
         );
       })}
