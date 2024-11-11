@@ -3,6 +3,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+  overflow-x: hidden !important;
 }
 
 .text-center{
@@ -11,6 +12,10 @@
 
 .nav{
   align-items: center;
+}
+
+.circle{
+  border-radius: 50%;
 }
 
 .intro-text{
@@ -68,9 +73,6 @@
   text-align: left;
 }
 
-.card-title{
-  text-align: center;
-}
 
 .sidebar{
   position: fixed;

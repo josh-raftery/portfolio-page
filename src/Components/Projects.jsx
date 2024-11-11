@@ -61,62 +61,95 @@ Design Choices:
     • Express.js API route handling.
     • Jest automated testing suite with 100+ tests including database seeding.`,
       summary: "API - serves up a JSON file for the front-end to ulilise",
-      technologies: ["Next.js", "CSS", "HTML", "MongoDB", "TailwindCSS", "Mongoose"],
-    }
+      technologies: [
+        "Next.js",
+        "CSS",
+        "HTML",
+        "MongoDB",
+        "TailwindCSS",
+        "Mongoose",
+      ],
+    },
   ];
   const [summary, setSummary] = useState({});
-  const [toggleSummary, setToggleSummary] = useState(false)
+  const [toggleSummary, setToggleSummary] = useState(false);
 
-  console.log(toggleSummary)
+  console.log(toggleSummary);
 
   return (
     <div className="gap-5 grid">
       {projects.map((project) => {
         return (
-          <div
-            onClick={() => setToggleSummary((currSummary) => !currSummary)}
-            key={project.id}
-            className="rounded-3xl relative max-w-[500px] m-[auto]"
-          >          
-            <img
-              className="rounded-3xl opacity-100"
-              onMouseEnter={() => setSummary({ [project.id]: true })}
-              onMouseLeave={() => setSummary({ [project.id]: false })}
-              src={project.img}
-              alt={project.summary}
-            />
+          <>
             <div
-              className={`absolute inset-0 rounded-3xl transition-bg-opacity duration-1000 bg-black ${
-                summary[project.id] ? "bg-opacity-80" : "bg-opacity-0"
-              }`}
-              onMouseEnter={() => setSummary({ [project.id]: true })}
-              onMouseLeave={() => setSummary({ [project.id]: false })}
+              onClick={() => setToggleSummary(true)}
+              key={project.id}
+              className="rounded-3xl relative max-w-[500px] m-[auto]"
             >
-              {summary[project.id] && (
-                <div className="p-4 text-white absolute bottom-0 m-4 gap-5 grid">
-                  <h2 className="text-3xl font-bold text-align-left">
-                    {project.title}
-                  </h2>
-                  <p className="">{project.summary}</p>
-                  <div className="flex flex-wrap gap-3">
-                    {project.technologies.map((technology) => {
-                      return (
-                        <div className="rounded-xl bg-gray-500 bg-opacity-90 p-1 relative">
-                          <p className="text-[#FFFFFF] no-opacity">
-                            <b>{technology}</b>
-                          </p>
-                        </div>
-                      );
-                    })}
+              <img
+                className="rounded-3xl opacity-100"
+                onMouseEnter={() => setSummary({ [project.id]: true })}
+                onMouseLeave={() => setSummary({ [project.id]: false })}
+                src={project.img}
+                alt={project.summary}
+              />
+              <div
+                className={`absolute inset-0 rounded-3xl transition-bg-opacity duration-1000 bg-black ${
+                  summary[project.id] ? "bg-opacity-80" : "bg-opacity-0"
+                }`}
+                onMouseEnter={() => setSummary({ [project.id]: true })}
+                onMouseLeave={() => setSummary({ [project.id]: false })}
+              >
+                {summary[project.id] && (
+                  <div className="p-4 text-white absolute bottom-0 m-4 gap-5 grid">
+                    <h2 className="text-3xl font-bold text-align-left">
+                      {project.title}
+                    </h2>
+                    <p className="">{project.summary}</p>
+                    <div className="flex flex-wrap gap-3">
+                      {project.technologies.map((technology) => {
+                        return (
+                          <div className="rounded-xl bg-gray-500 bg-opacity-90 p-1 relative">
+                            <p className="text-[#FFFFFF] no-opacity">
+                              <b>{technology}</b>
+                            </p>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
-            <div className={`sidebar ${toggleSummary ? 'sidebar-appear' : ''} bg-white`} >
-              test
+            <div
+              className={`sidebar ${
+                toggleSummary ? "sidebar-appear" : ""
+              } bg-base-100`}
+            >
+              <div className="justify-between flex mt-6 ml-6 mr-6 mb-4" >
+                <button className="circle border p-1 border-[currentColor] " onClick={() => setToggleSummary(false)}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+                    />
+                  </svg>
+                </button>
+                <button className="hover:border-b border-[currentColor]" ><b>Back To Projects.</b></button>
+              </div>
+              <div className="border-t border-[0.2px] border-[currentColor] mr-2 ml-2 opacity-20" />
             </div>
-            {toggleSummary && <div className="fixed inset-0 bg-black opacity-20 z-5"/>}
-          </div>
+            {toggleSummary && (
+              <div className="fixed inset-0 bg-black opacity-20 z-5" />
+
+            )}
+          </>
         );
       })}
     </div>
