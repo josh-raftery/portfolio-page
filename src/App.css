@@ -3,11 +3,6 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  overflow-x: hidden !important;
-}
-
-.text-center{
-  text-align: center;
 }
 
 .nav{
@@ -29,12 +24,14 @@
   font-weight: 500
 }
 
-.nav-bar{
-  margin: 0%;
-  padding: 0%;
+.navbar{
+  width: 100vw !important;
 }
 
-.nav-bar,
+.nav-text{
+  width: calc(100vw - 50px);
+}
+
 .feature-list,
 .style-list{
   display: table;

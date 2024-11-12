@@ -47,7 +47,7 @@ Design Choices:
     • MVC pattern SQL database querying.
     • Express.js API route handling.
     • Jest automated testing suite with 100+ tests including database seeding.`,
-      summary: "API - serves up a JSON file for the front-end to ulilise",
+      summary: "API - Various endpoints which respond with a JSON file - root of API contains description of contents.",
       technologies: ["Node.js", "Express.js", "Jest", "PostgreSQL"],
     },
     {
@@ -76,15 +76,27 @@ Design Choices:
 
   console.log(toggleSummary);
 
+  function displayPopup(){
+    setToggleSummary(true)
+    const body = document.getElementById('body')
+    body.style.overflow = 'hidden'
+  }
+
+  function closePopup(){
+    setToggleSummary(false)
+    const body = document.getElementById('body')
+    body.style.overflow = 'visible'
+  }
+
   return (
-    <div className="gap-5 grid">
+    <div className={`gap-5 grid josh`}>
       {projects.map((project) => {
         return (
           <>
             <div
-              onClick={() => setToggleSummary(true)}
+              onClick={displayPopup}
               key={project.id}
-              className="rounded-3xl relative max-w-[500px] m-[auto]"
+              className={`rounded-3xl relative max-w-[500px] m-[auto] cursor-pointer`}
             >
               <img
                 className="rounded-3xl opacity-100"
@@ -127,7 +139,7 @@ Design Choices:
               } bg-base-100`}
             >
               <div className="justify-between flex mt-6 ml-6 mr-6 mb-4" >
-                <button className="circle border p-1 border-[currentColor] " onClick={() => setToggleSummary(false)}>
+                <button className="circle border p-1 border-[currentColor] " onClick={closePopup}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -141,7 +153,7 @@ Design Choices:
                     />
                   </svg>
                 </button>
-                <button className="hover:border-b border-[currentColor]" ><b>Back To Projects.</b></button>
+                <button  onClick={closePopup} className="hover:border-b border-[currentColor]" ><b>Back To Projects.</b></button>
               </div>
               <div className="border-t border-[0.2px] border-[currentColor] mr-2 ml-2 opacity-20" />
             </div>
