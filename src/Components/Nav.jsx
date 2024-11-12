@@ -4,7 +4,7 @@ import DayNight from "./DayNight"
 function Nav(){
     return (
         <div className="navbar bg-base-100 flex justify-between">
-            <div className="nav-text">
+            <div className="nav-text justify-center ml-[50px]">
                 <Link to="/resume" ><btn className="btn btn-ghost text-base sm:text-base">Resume</btn></Link>                
                 <Link to="/" ><btn className="btn btn-ghost text-base sm:text-base">About</btn></Link>        
                 <Link to="/projects" ><btn className="btn btn-ghost text-base sm:text-base">Projects</btn></Link>             

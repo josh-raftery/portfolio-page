@@ -8,31 +8,30 @@ function Projects() {
       id: 1,
       url: "https://pulsewire.netlify.app/",
       img: "/assets/pulsewire.gif",
-      description: `Features:
- • View Articles
- • Filter Articles
- • Article Pagination
- • Search Bar
- • Post Article
- • View Topics
- • View Article
- • Like, Dislike Article
- • Share Article
- • Preview Top Articles
- • Preview Top Articles Pagination
- • Preview Related Articles
- • Preview Related Articles Pagination
- • View Comments
- • Like, Dislike Comments
- • Comment Pagination
- • Day/Night Theme Switcher
- • Sign In, Sign Up and Sign Out.
-
-Design Choices:
- • Accessible design such as optimistic rendering and intuitive error handling around input fields.
- • Mobile first design with dynamic page styling catering for mobile, tablet and monitor screens.
- • Modals implemented to restrict access to user only features.
- • Dynamic SVG icons - adjusting to browser theme.`,
+      features: [
+        "View Articles",
+        "Filter Articles",
+        "Article Pagination",
+        "Search Bar",
+        "Post Article",
+        "View Topics",
+        "View Article",
+        "Like, Dislike Article",
+        "Share Article",
+        "Preview Top Articles",
+        "Preview Top Articles Pagination",
+        "Preview Related Articles",
+        "Preview Related Articles Pagination",
+        "View Comments",
+        "Like, Dislike Comments",
+        "Comment Pagination",
+        "Day/Night Theme Switcher",
+        "Sign In, Sign Up and Sign Out.",
+        "Accessible design such as optimistic rendering and intuitive error handling around input fields.",
+        "Mobile first design with dynamic page styling catering for mobile, tablet and monitor screens.",
+        "Modals implemented to restrict access to user only features.",
+        "Dynamic SVG icons - adjusting to browser theme.",
+      ],
       summary:
         "News site application - read, comment on, post, like and share news articles.",
       technologies: ["React.js", "CSS", "HTML", "TailwindCSS"],
@@ -42,12 +41,14 @@ Design Choices:
       id: "2",
       img: "/assets/pulsewireAPI.png",
       url: "https://be-nc-news-ml9n.onrender.com/api",
-      description: `Features:
-        • PostgreSQL database.
-    • MVC pattern SQL database querying.
-    • Express.js API route handling.
-    • Jest automated testing suite with 100+ tests including database seeding.`,
-      summary: "API - Various endpoints which respond with a JSON file - root of API contains description of contents.",
+      features: [
+        "PostgreSQL database",
+        "MVC pattern SQL database querying",
+        "Express.js API route handling",
+        "Jest automated testing suite with 100+ tests including database seeding.",
+      ],
+      summary:
+        "API - Various endpoints which respond with a JSON file - root of API contains description of contents.",
       technologies: ["Node.js", "Express.js", "Jest", "PostgreSQL"],
     },
     {
@@ -55,12 +56,18 @@ Design Choices:
       img: "/assets/prepmaster.gif",
       id: "3",
       url: "https://be-prep-master.vercel.app/",
-      description: `Features:
-        • PostgreSQL database.
-    • MVC pattern SQL database querying.
-    • Express.js API route handling.
-    • Jest automated testing suite with 100+ tests including database seeding.`,
-      summary: "API - serves up a JSON file for the front-end to ulilise",
+      features: [
+        "View your meal plan for a given week",
+        "Generate Mealplan to automatically create a meal plan by selecting specifying days and meals",
+        "Handpick meals and add them to the planner from any recipe page.",
+        "Mark all the meals you have cooked in the progress page.",
+        "Add all ingredients from a given recipe to your shopping list",
+        "Search for recipes",
+        "Post a recipe of your own.",
+        "Sign in, sign out and sign up.",
+      ],
+      summary:
+        "Meal planner app. Generate, add to and manage your meal plan and shopping list.",
       technologies: [
         "Next.js",
         "CSS",
@@ -76,16 +83,16 @@ Design Choices:
 
   console.log(toggleSummary);
 
-  function displayPopup(){
-    setToggleSummary(true)
-    const body = document.getElementById('body')
-    body.style.overflow = 'hidden'
+  function displayPopup() {
+    setToggleSummary(true);
+    const body = document.getElementById("body");
+    body.style.overflow = "hidden";
   }
 
-  function closePopup(){
-    setToggleSummary(false)
-    const body = document.getElementById('body')
-    body.style.overflow = 'visible'
+  function closePopup() {
+    setToggleSummary(false);
+    const body = document.getElementById("body");
+    body.style.overflow = "visible";
   }
 
   return (
@@ -138,8 +145,11 @@ Design Choices:
                 toggleSummary ? "sidebar-appear" : ""
               } bg-base-100`}
             >
-              <div className="justify-between flex mt-6 ml-6 mr-6 mb-4" >
-                <button className="circle border p-1 border-[currentColor] " onClick={closePopup}>
+              <div className="justify-between flex mt-6 ml-6 mr-6 mb-4">
+                <button
+                  className="circle border p-1 border-[currentColor] "
+                  onClick={closePopup}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -153,13 +163,34 @@ Design Choices:
                     />
                   </svg>
                 </button>
-                <button  onClick={closePopup} className="hover:border-b border-[currentColor]" ><b>Back To Projects.</b></button>
+                <button
+                  onClick={closePopup}
+                  className="hover:border-b border-[currentColor]"
+                >
+                  <b>Back To Projects.</b>
+                </button>
               </div>
               <div className="border-t border-[0.2px] border-[currentColor] mr-2 ml-2 opacity-20" />
+              <div className="m-6">
+                <h2 className="text-xl font-bold text-align-left">
+                  <b>{project.title}</b>
+                </h2>
+                <p className="mt-2">{project.summary}</p>
+                <img
+                  className="rounded-3xl m-[auto] mt-6"
+                  src={project.img}
+                  alt={project.summary}
+                />
+                <h3 className="">About</h3>
+                <ul>
+                  {project.features.map((feature,index) => {
+                    return <li key={index} >{feature}</li>;
+                  })}
+                </ul>
+              </div>
             </div>
             {toggleSummary && (
               <div className="fixed inset-0 bg-black opacity-20 z-5" />
-
             )}
           </>
         );
