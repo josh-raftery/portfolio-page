@@ -2,6 +2,17 @@
   align-items: center;
 }
 
+ul, ol {
+  list-style-type: disc; /* or "decimal" for ordered lists */
+  list-style-position: inside; /* Use "outside" if you want bullets outside the text */
+  margin: 0; /* Ensure no extra margin */
+  padding-left: 20px; /* Adds spacing for bullets */
+}
+
+li {
+  display: list-item; /* Ensures `<li>` renders as list items with bullets */
+}
+
 .circle{
   border-radius: 50%;
 }
@@ -50,10 +61,6 @@
   margin-top: 3rem;
 }
 
-*{
-  overflow-x: hidden;
-}
-
 
 .sidebar{
   position: fixed;
@@ -65,6 +72,7 @@
   height: 100%;
   transform: translateX(100%);
   transition: transform 0.3s ease;
+  overflow-y: auto;
 }
 
 @media (max-width: 600px) {
