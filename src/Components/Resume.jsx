@@ -6,8 +6,8 @@ export default function Resume() {
   const { dark } = useContext(ThemeContext);
 
   return (
-    <div className="text-center">
-      <Link to="/assets/programming _resume.pdf" target="_blank" download>
+    <div className="text-center p-6">
+      <Link to="/assets/programming_resume.pdf" target="_blank" download>
         <button
           style={{ marginBottom: "1rem" }}
           className="btn btn-ghost min-w-[100px] min-h-[100px]"

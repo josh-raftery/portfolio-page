@@ -46,7 +46,7 @@ export default function TypeAboutMe(){
       ]}
       wrapper="span"
       speed={50}
-      style={{ fontSize: '3em', display: 'inline-block' }}
+      style={{ fontSize: '2.5em', display: 'inline-block' }}
       repeat={Infinity}
       className='type-about-me'
     />

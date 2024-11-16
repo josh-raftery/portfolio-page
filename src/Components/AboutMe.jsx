@@ -3,29 +3,18 @@ import Github from "./Github";
 import { useContext } from "react";
 import { ThemeContext } from "../Contexts/ThemeContext";
 import TypeAboutMe from "./TypeAboutMe";
+import LinkedIn from "./LinkedIn";
+import Gmail from "./Gmail";
 
 function AboutMe() {
 
   const {dark} = useContext(ThemeContext)
 
   return (
-    <div className="text-center">
+    <div className="text-center p-6">
       <div className="intro-text">
         <h1>Hi, I'm</h1>
         <h1 style={{ color: "#32de84" }}>Josh.</h1>
-        <a href="https://www.linkedin.com/in/joshuaraftery/" target="_blank">
-          <button className="btn btn-ghost">
-            <img style={{ width: "35px" }} src={dark ? "/assets/linkedin-night.png" : "/assets/linkedin.png"}></img>
-          </button>
-        </a>
-        <a href="https://github.com/josh-raftery" target="_blank">
-          <Github/>
-        </a>
-        <a href="mailto:joshuaraftery99@gmail.com" target="_blank">
-          <button className="btn btn-ghost">
-            <img style={{ width: "35px" }} src="/assets/gmail.png"></img>
-          </button>
-        </a>
       </div>
       <TypeAboutMe/>
       <div className="aboutme-text">
