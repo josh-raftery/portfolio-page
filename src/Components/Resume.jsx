@@ -6,7 +6,7 @@ export default function Resume() {
   const { dark } = useContext(ThemeContext);
 
   return (
-    <div className="text-center p-6">
+    <div className="text-center p-6 page-height">
       <Link to="/assets/programming_resume.pdf" target="_blank" download>
         <button
           style={{ marginBottom: "1rem" }}

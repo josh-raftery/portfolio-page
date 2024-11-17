@@ -11,7 +11,7 @@ function AboutMe() {
   const {dark} = useContext(ThemeContext)
 
   return (
-    <div className="text-center p-6">
+    <div className="text-center p-6 page-height">
       <div className="intro-text">
         <h1>Hi, I'm</h1>
         <h1 style={{ color: "#32de84" }}>Josh.</h1>

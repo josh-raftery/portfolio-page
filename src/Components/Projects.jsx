@@ -1,87 +1,8 @@
 import { useEffect, useState } from "react";
-import Github from "./Github";
-import Loading from "./Loading";
+import projects from "../data/projects";
 
 function Projects() {
-  const projects = [
-    {
-      title: "PulseWire",
-      id: 1,
-      url: "https://pulsewire.netlify.app/",
-      github: "https://github.com/josh-raftery/fe-nc-news",
-      img: "/assets/pulsewire.gif",
-      features: [
-        "View Articles",
-        "Filter Articles",
-        "Article Pagination",
-        "Search Bar",
-        "Post Article",
-        "View Topics",
-        "View Article",
-        "Like, Dislike Article",
-        "Share Article",
-        "Preview Top Articles",
-        "Preview Top Articles Pagination",
-        "Preview Related Articles",
-        "Preview Related Articles Pagination",
-        "View Comments",
-        "Like, Dislike Comments",
-        "Comment Pagination",
-        "Day/Night Theme Switcher",
-        "Sign In, Sign Up and Sign Out.",
-        "Accessible design such as optimistic rendering and intuitive error handling around input fields.",
-        "Mobile first design with dynamic page styling catering for mobile, tablet and monitor screens.",
-        "Modals implemented to restrict access to user only features.",
-        "Dynamic SVG icons - adjusting to browser theme.",
-      ],
-      summary:
-        "News site application - read, comment on, post, like and share news articles.",
-      technologies: ["React.js", "CSS", "HTML", "TailwindCSS"],
-    },
-    {
-      title: "PulseWire API",
-      github: "https://github.com/josh-raftery/be-nc-news",
-      id: "2",
-      img: "/assets/pulsewireAPI.png",
-      url: "https://be-nc-news-ml9n.onrender.com/api",
-      features: [
-        "PostgreSQL database",
-        "MVC pattern SQL database querying",
-        "Express.js API route handling",
-        "Jest automated testing suite with 100+ tests including database seeding.",
-      ],
-      summary:
-        "Various endpoints which serve JSON files - root of API contains description of contents.",
-      technologies: ["Node.js", "Express.js", "Jest", "PostgreSQL"],
-    },
-    {
-      title: "PrepMaster",
-      img: "/assets/prepmaster.gif",
-      id: "3",
-      github: "https://github.com/josh-raftery/prep-master",
-      url: "https://be-prep-master.vercel.app/",
-      features: [
-        "View your meal plan for a given week",
-        "Generate Mealplan to automatically create a meal plan by selecting specifying days and meals",
-        "Handpick meals and add them to the planner from any recipe page.",
-        "Mark all the meals you have cooked in the progress page.",
-        "Add all ingredients from a given recipe to your shopping list",
-        "Search for recipes",
-        "Post a recipe of your own.",
-        "Sign in, sign out and sign up.",
-      ],
-      summary:
-        "Meal planner app. Generate, add to and manage your meal plan and shopping list.",
-      technologies: [
-        "Next.js",
-        "CSS",
-        "HTML",
-        "MongoDB",
-        "TailwindCSS",
-        "Mongoose",
-      ],
-    },
-  ];
+  
   const [summary, setSummary] = useState({});
   const [toggleSummary, setToggleSummary] = useState(false);
   const [toggleOpenProject, setToggleOpenProject] = useState(false);
@@ -99,7 +20,6 @@ function Projects() {
     technologies: [],
   });
 
-  const [isPreLoading, setIsPreLoading] = useState(true);
   const [isLoading, setIsLoading] = useState( projects.reduce((acc, project) => {
     acc[project.id] = true;
     return acc;
@@ -149,7 +69,8 @@ function Projects() {
   }
 
   return (
-      <div className={`projects pt-6 pb-6 gap-5 grid w-fit min-w-[350px] m-auto page-height`}>
+    <div className="page-height" >
+      <div className={`projects pt-6 pb-6 gap-5 grid w-fit min-w-[350px] m-auto`}>
         <h2 className="text-5xl mt-20 mb-10 font-black" ><b>Projects.</b></h2>
         {projects.map((project) => {
           return (
@@ -436,6 +357,7 @@ function Projects() {
           />
         )}
       </div>
+    </div>
   );
 }
 
