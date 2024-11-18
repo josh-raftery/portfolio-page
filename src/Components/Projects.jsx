@@ -80,7 +80,7 @@ function Projects() {
                 key={project.id}
                 className={`rounded-3xl relative h-full max-w-[500px] m-[auto] cursor-pointer border`}
               >
-                {isLoading[project.id] && <div className="bg-gray-400 opacity-50 w-full min-h-[300px] rounded-3xl shadow-xl" />}
+                {isLoading[project.id] && <div style={{zIndex: "1000000000"}} className="bg-gray-400 absolute opacity-50 w-full min-h-[300px] rounded-3xl " />}
                   <>
                     <img
                       className={`${isLoading[project.id] && 'hidden'} rounded-3xl opacity-100`}

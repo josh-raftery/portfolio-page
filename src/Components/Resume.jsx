@@ -6,7 +6,7 @@ export default function Resume() {
   const { dark } = useContext(ThemeContext);
 
   return (
-    <div className="text-center p-6 page-height">
+    <div className="text-center p-6 mt-[64px] mb-[64px]">
       <Link to="/assets/programming_resume.pdf" target="_blank" download>
         <button
           style={{ marginBottom: "1rem" }}
@@ -18,12 +18,13 @@ export default function Resume() {
           ></img>
         </button>
       </Link>
-      <iframe
-        className={"pdf"}
-        width="100%"
-        height="1000"
-        src={`/assets/programming_resume.pdf#toolbar=0&navpanes=0`}
-      ></iframe>
+      <div className="justify-center w-full flex" >
+        <iframe
+          className={"pdf w-[850px]"}
+          height="1000"
+          src={`/assets/programming_resume.pdf#toolbar=0&navpanes=0`}
+        ></iframe>
+      </div>
     </div>
   );
 }

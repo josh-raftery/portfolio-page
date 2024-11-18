@@ -29,9 +29,8 @@ li {
 }
 
 .page-height{
-  /* height: calc(100% - 112px); */
-  margin-bottom: 64px;
-  margin-top: 48px;
+  padding-bottom: 64px !important;
+  padding-top: 64px;
 }
 
 .underline-hover {
@@ -85,7 +84,7 @@ li {
 
 .sidebar{
   position: fixed;
-  z-index: 100;
+  z-index: 100000;
   top: 0;
   bottom: 0;
   right: 0;
