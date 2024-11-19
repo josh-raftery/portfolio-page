@@ -13,6 +13,24 @@ li {
   border-radius: 50%;
 }
 
+.light-border {
+  border: 1px solid rgba(133, 133, 133, 0.5);
+  border-radius: 5px;
+  padding: 0.7rem;
+}
+
+.light-border:focus{
+  box-shadow: 
+    0 0 0 100px transparent, /* Creates the gap */
+    0 0 0 1px rgba(133, 133, 133, 0.5);; /* Thin outline */
+  border-radius: 5px; /* Match the existing border radius */
+}
+
+textarea:focus,
+input:focus{
+  outline: none;
+}
+
 .intro-text{
   padding-top: 100px;
   font-size: 60px;
@@ -30,7 +48,7 @@ li {
 
 .page-height{
   padding-bottom: 64px !important;
-  padding-top: 64px;
+  padding-top: 64px !important;
 }
 
 .underline-hover {

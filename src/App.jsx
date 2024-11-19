@@ -5,6 +5,7 @@ import Nav from './Components/Nav'
 import Projects from './Components/Projects'
 import Resume from './Components/Resume'
 import Footer from './Components/Footer'
+import Contact from './Components/Contact'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path = '/' element = {<AboutMe/>}/>
         <Route path = '/projects' element = {<Projects/>}/>
         <Route path = '/resume' element = {<Resume/>}/>
+        <Route path = '/contact' element = {<Contact/>}/>
       </Routes>
       <Footer/>
     </div>
