@@ -14,11 +14,11 @@ export default function DayNight(){
     }
 
     return (
-        <label className="swap swap-rotate items-center h-fit w-fit ">
+        <label className="swap swap-rotate items-center h-fit w-fit cursor-pointer">
             {/* this hidden checkbox controls the state */}
-            <input defaultChecked={dark} checked={dark} onClick={switchTheme} type="checkbox" />
+            <input defaultChecked={dark} checked={dark} onClick={switchTheme} type="checkbox" className="cursor-pointer" />
             <svg
-                className="swap-on h-7 w-7 fill-current"
+                className="swap-on h-6 w-6 fill-current cursor-pointer"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24">
                 <path
@@ -27,7 +27,7 @@ export default function DayNight(){
 
             {/* moon icon */}
             <svg
-                className="swap-off h-6 w-6 fill-current"
+                className="swap-off h-5 w-5 fill-current cursor-pointer"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24">
                 <path
