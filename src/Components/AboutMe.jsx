@@ -3,8 +3,7 @@ import Github from "./Github";
 import { useContext } from "react";
 import { ThemeContext } from "../Contexts/ThemeContext";
 import TypeAboutMe from "./TypeAboutMe";
-import LinkedIn from "./LinkedIn";
-import Gmail from "./Gmail";
+import NextPage from "./NextPage";
 
 function AboutMe() {
 
@@ -31,6 +30,7 @@ function AboutMe() {
           devleloper.
         </h2>
       </div>
+      <NextPage text="Let's Continue to Projects" />
     </div>
   );
 }

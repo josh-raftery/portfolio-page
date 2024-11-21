@@ -1,3 +1,5 @@
+import NextPage from "./NextPage";
+
 export default function Contact() {
   return (
     <div className="page-height max-w-[500px] m-auto p-4">
@@ -11,6 +13,7 @@ export default function Contact() {
         <textarea placeholder="Message" className="light-border" rows="8" ></textarea>
         <button className="light-border">Send Message</button>
       </form>
+      <NextPage text={"Back to Home"} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../Contexts/ThemeContext";
+import NextPage from "./NextPage";
 
 export default function Resume() {
 
@@ -25,6 +26,7 @@ export default function Resume() {
           ></iframe>
         </div>
       </div>
+      <NextPage text={"Ready to Contact Me Now?"} />
     </div>
   );
 }

@@ -13,7 +13,7 @@ function Nav(){
                     </div>
                 </div>
                 <div className="m-auto gap-3 w-fit right-[50px] absolute" >  
-                    <Link to="/contact" ><btn href="#" class="underline-hover"><b>Contact</b></btn></Link>
+                    {/* <Link to="/contact" ><btn href="#" class="underline-hover"><b>Contact</b></btn></Link> */}
                 </div>
                 <div className=" gap-3 w-fit right-[0] mr-2 top-[0] mt-[14.5px] absolute" >  
                     <DayNight/>

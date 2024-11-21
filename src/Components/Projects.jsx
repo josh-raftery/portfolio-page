@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import projects from "../data/projects";
+import NextPage from "./NextPage";
 
 function Projects() {
   
@@ -357,6 +358,7 @@ function Projects() {
           />
         )}
       </div>
+      <NextPage text={"Let's Go to My Resume"} />
     </div>
   );
 }
