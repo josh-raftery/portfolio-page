@@ -30,7 +30,7 @@ function AboutMe() {
           devleloper.
         </h2>
       </div>
-      <NextPage text="Let's Continue to Projects" />
+      <NextPage text="Let's Continue to Projects" page={"/projects"} />
     </div>
   );
 }

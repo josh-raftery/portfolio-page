@@ -6,11 +6,13 @@ import Projects from './Components/Projects'
 import Resume from './Components/Resume'
 import Footer from './Components/Footer'
 import Contact from './Components/Contact'
+import ScrollToTop from './Components/ScrollToTop'
 
 function App() {
 
   return (
     <div className='h-[100vh] relative' >
+      <ScrollToTop />
       <Nav/>
       <Routes>
         <Route path = '/' element = {<AboutMe/>}/>

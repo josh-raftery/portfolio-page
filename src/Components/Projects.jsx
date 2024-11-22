@@ -358,7 +358,7 @@ function Projects() {
           />
         )}
       </div>
-      <NextPage text={"Let's Go to My Resume"} />
+      <NextPage text={"Let's Go to My Resume"} page={"/resume"} />
     </div>
   );
 }
