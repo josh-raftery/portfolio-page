@@ -71,7 +71,7 @@ function Projects() {
 
   return (
     <div className="page-height" >
-      <div className={`projects pt-6 pb-6 gap-5 grid w-fit min-w-[350px] m-auto`}>
+      <div className={`projects pt-6 pb-6 gap-5 max-w-[500px] grid m-auto`}>
         <h2 className="text-5xl mt-20 mb-10 font-black" ><b>Projects.</b></h2>
         {projects.map((project) => {
           return (
@@ -79,9 +79,9 @@ function Projects() {
               <div
                 onClick={() => displayPopup(project)}
                 key={project.id}
-                className={`rounded-3xl relative h-full max-w-[500px] m-[auto] cursor-pointer border`}
+                className={`rounded-3xl relative m-[auto] cursor-pointer border`}
               >
-                {isLoading[project.id] && <div className="bg-gray-400 opacity-50 w-full min-h-[300px] rounded-3xl " />}
+                {isLoading[project.id] && <div className="bg-gray-400 opacity-50 h-[400px] rounded-3xl " />}
                   <div>
                     <img
                       className={`${isLoading[project.id] && 'hidden'} rounded-3xl opacity-100`}

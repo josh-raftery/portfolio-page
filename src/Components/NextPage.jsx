@@ -5,7 +5,7 @@ export default function NextPage({text, page}){
     return(
         <Link to={page} >
             <div className="flex justify-center gap-2 p-10 cursor-pointer w-fit m-auto" >
-                <p>{text}</p>
+                <p className="hover:border-b border-[currentColor] leading-tight" >{text}</p>
                 <div className="bouncing-next m-auto" >
                     <Next />
                 </div>
