@@ -63,6 +63,8 @@ function Projects() {
     body.style.overflow = "hidden";
   }
 
+  console.log(summary)
+
   function closePopup() {
     setToggleSummary(false);
     const body = document.getElementById("body");
@@ -85,8 +87,8 @@ function Projects() {
                   <div>
                     <img
                       className={`${isLoading[project.id] && 'hidden'} rounded-3xl opacity-100`}
-                      onMouseEnter={() => setSummary({ [project.id]: true })}
-                      onMouseLeave={() => setSummary({ [project.id]: false })}
+                      onMouseEnter={() => windowDimensions.width > 600 && setSummary({ [project.id]: true })}
+                      onMouseLeave={() => windowDimensions.width > 600 && setSummary({ [project.id]: false })}
                       onLoad={() =>
                         setTimeout(() =>
                           setIsLoading((currLoading) => {
@@ -103,12 +105,12 @@ function Projects() {
                       className={`absolute inset-0 rounded-3xl transition-bg-opacity duration-1000 bg-black ${
                         summary[project.id] ? "bg-opacity-80" : "bg-opacity-0"
                       }`}
-                      onMouseEnter={() => setSummary((currSummary) => {
+                      onMouseEnter={() => windowDimensions.width > 600 &&  setSummary((currSummary) => {
                         let newSumary = {...currSummary}
                         newSumary[project.id] = true
                         return newSumary 
                         })}
-                      onMouseLeave={() => setSummary((currSummary) => {
+                      onMouseLeave={() => windowDimensions.width > 600 &&  setSummary((currSummary) => {
                         let newSumary = {...currSummary}
                         newSumary[project.id] = false
                         return newSumary 
