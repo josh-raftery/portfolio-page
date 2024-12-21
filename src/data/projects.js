@@ -26,7 +26,7 @@ export default [
       github: "https://github.com/josh-raftery/be-nc-news",
       id: "2",
       img: "/assets/pulsewireAPI.png",
-      url: "https://be-nc-news-ml9n.onrender.com/api",
+      url: "https://pulsewire-api.vercel.app/api",
       features: [
         "MVC pattern SQL database querying",
         "Express.js API route handling",
