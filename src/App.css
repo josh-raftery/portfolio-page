@@ -9,6 +9,7 @@ li {
   display: list-item; /* Ensures `<li>` renders as list items with bullets */
 }
 
+
 .circle{
   border-radius: 50%;
 }

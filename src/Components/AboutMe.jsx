@@ -1,13 +1,9 @@
 import { Link } from "react-router-dom";
-import Github from "./Github";
-import { useContext } from "react";
-import { ThemeContext } from "../Contexts/ThemeContext";
 import TypeAboutMe from "./TypeAboutMe";
 import NextPage from "./NextPage";
 
 function AboutMe() {
 
-  const {dark} = useContext(ThemeContext)
 
   return (
     <div className="text-center p-6 page-height">

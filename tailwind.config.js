@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+import daisyui from 'daisyui'
+
+export default {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
@@ -12,7 +14,7 @@ module.exports = {
     "-translate-x-1/2",
     "group-hover:block"
   ],
-  plugins: [require("daisyui")],
+  plugins: [daisyui],
   daisyui: {
     themes: ["light", "dark", "autumn","emerald","winter", "synthwave"]
   }
