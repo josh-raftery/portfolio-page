@@ -1,5 +1,28 @@
 export default [
     {
+      title: "TravelMate",
+      img: "/assets/travel_mate_thumbnail.png",
+      id: "3",
+      github: "https://github.com/josh-raftery/travel_mate/",
+      url: "",
+      features: [
+        "Add countries, destinations, accomodation, transportation and activities to an itinerary",
+        "View your past, present and future trips on the map",
+        "View your friend's trips"
+      ],
+      summary:
+      "Travel planner app and diary",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "PostgreSQL",
+        "TailwindCSS",
+        "HTML",
+        "CSS"
+      ],
+      finished: false
+    },
+    {
       title: "PulseWire",
       id: 1,
       url: "https://pulsewire.netlify.app/",
@@ -20,6 +43,7 @@ export default [
       summary:
         "News site application - read, comment on, post, like and share news articles.",
       technologies: ["React.js", "CSS", "HTML", "TailwindCSS"],
+      finished: true
     },
     {
       title: "PulseWire API",
@@ -35,6 +59,7 @@ export default [
       summary:
         "Various endpoints which serve JSON files - root of API contains description of contents.",
       technologies: ["Node.js", "Express.js", "Jest", "PostgreSQL"],
+      finished: true
     },
     {
       title: "PrepMaster",
@@ -62,5 +87,6 @@ export default [
         "TailwindCSS",
         "Mongoose",
       ],
-    },
+      finished: true
+    }
   ];

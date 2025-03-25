@@ -3,7 +3,7 @@ import projects from "../data/projects";
 import NextPage from "./NextPage";
 
 function Projects() {
-  
+
   const [summary, setSummary] = useState({});
   const [toggleSummary, setToggleSummary] = useState(false);
   const [toggleOpenProject, setToggleOpenProject] = useState(false);
@@ -21,7 +21,7 @@ function Projects() {
     technologies: [],
   });
 
-  const [isLoading, setIsLoading] = useState( projects.reduce((acc, project) => {
+  const [isLoading, setIsLoading] = useState(projects.reduce((acc, project) => {
     acc[project.id] = true;
     return acc;
   }, {}));
@@ -39,20 +39,20 @@ function Projects() {
 
   useEffect(() => {
     console.log(windowDimensions.width, ' width')
-    if(windowDimensions.width < "600"){
+    if (windowDimensions.width < "600") {
       console.log('test')
       setSummary(projects.reduce((acc, project) => {
         acc[project.id] = true;
         return acc;
       }, {}))
-    } else if(windowDimensions.width > "600") {
+    } else if (windowDimensions.width > "600") {
       setSummary(projects.reduce((acc, project) => {
         acc[project.id] = false;
         return acc;
       }, {}))
     }
-    
-  },[windowDimensions.width])
+
+  }, [windowDimensions.width])
 
   console.log(summary);
 
@@ -79,73 +79,89 @@ function Projects() {
           return (
             <div>
               <div
-                onClick={() => displayPopup(project)}
+                onClick={() => project.finished && displayPopup(project)}
                 key={project.id}
-                className={`rounded-3xl relative m-[auto] cursor-pointer border`}
+                className={`rounded-3xl relative m-[auto] ${project.finished ? "cursor-pointer" : "cursor-not-allowed"} border`}
               >
-                {isLoading[project.id] && <div className="bg-gray-400 opacity-50 h-[400px] rounded-3xl " />}
-                  <div>
-                    <img
-                      className={`${isLoading[project.id] && 'hidden'} rounded-3xl opacity-100`}
-                      onMouseEnter={() => windowDimensions.width > 600 && setSummary({ [project.id]: true })}
-                      onMouseLeave={() => windowDimensions.width > 600 && setSummary({ [project.id]: false })}
-                      onLoad={() =>
-                        setTimeout(() =>
-                          setIsLoading((currLoading) => {
-                            let newLoading = {...currLoading};
-                            newLoading[project.id] = false;
-                            return newLoading;
-                          })
-                        ,10000) // find a way to work out when GIF is fully loaded
-                      }
-                      src={project.img}
-                      alt={project.summary}
-                    />
+                {!project.finished && (
+                  <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden flex items-center justify-start">
                     <div
-                      className={`absolute inset-0 rounded-3xl transition-bg-opacity duration-1000 bg-black ${
-                        summary[project.id] ? "bg-opacity-80" : "bg-opacity-0"
-                      }`}
-                      onMouseEnter={() => windowDimensions.width > 600 &&  setSummary((currSummary) => {
-                        let newSumary = {...currSummary}
-                        newSumary[project.id] = true
-                        return newSumary 
-                        })}
-                      onMouseLeave={() => windowDimensions.width > 600 &&  setSummary((currSummary) => {
-                        let newSumary = {...currSummary}
-                        newSumary[project.id] = false
-                        return newSumary 
-                      })}
+                      className="absolute w-full h-16 bg-yellow-500 opacity-90 flex items-center justify-center mb-[25%]"
+                      style={{
+                        backgroundImage: 'repeating-linear-gradient(45deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3) 5px, transparent 5px, transparent 10px)',
+                      }}
                     >
-                      {summary[project.id] && (
-                        <div className="p-4 text-white absolute bottom-0 m-4 gap-5 grid">
-                          <h2 className="text-3xl font-bold text-align-left">
-                            {project.title}
-                          </h2>
-                          <p className="">{project.summary}</p>
-                          <div className="flex flex-wrap gap-3">
-                            {project.technologies.map((technology, index) => (
-                              <div
-                                key={index} // Always add a key to mapped elements
-                                className="rounded-xl bg-gray-500 bg-opacity-90 p-1 relative"
-                              >
-                                <p className="text-[#FFFFFF] no-opacity">
-                                  <b>{technology}</b>
-                                </p>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
+                      <span className="text-white font-bold text-xl z-20 relative bg-opacity-80 rounded"
+                        style={{
+                          WebkitTextStroke: '0.5px black',
+                          textStroke: '0.5px black'
+                        }}>
+                        Work In Progress
+                      </span>
                     </div>
                   </div>
+                )}
+                {isLoading[project.id] && <div className="bg-gray-400 opacity-50 h-[400px] rounded-3xl " />}
+                <div>
+                  <img
+                    className={`${isLoading[project.id] && 'hidden'} rounded-3xl opacity-100`}
+                    onMouseEnter={() => windowDimensions.width > 600 && setSummary({ [project.id]: true })}
+                    onMouseLeave={() => windowDimensions.width > 600 && setSummary({ [project.id]: false })}
+                    onLoad={() =>
+                      setTimeout(() =>
+                        setIsLoading((currLoading) => {
+                          let newLoading = { ...currLoading };
+                          newLoading[project.id] = false;
+                          return newLoading;
+                        })
+                        , 10000) // find a way to work out when GIF is fully loaded
+                    }
+                    src={project.img}
+                    alt={project.summary}
+                  />
+                  <div
+                    className={`absolute inset-0 rounded-3xl transition-bg-opacity duration-1000 bg-black ${summary[project.id] ? "bg-opacity-80" : "bg-opacity-0"
+                      }`}
+                    onMouseEnter={() => windowDimensions.width > 600 && setSummary((currSummary) => {
+                      let newSumary = { ...currSummary }
+                      newSumary[project.id] = true
+                      return newSumary
+                    })}
+                    onMouseLeave={() => windowDimensions.width > 600 && setSummary((currSummary) => {
+                      let newSumary = { ...currSummary }
+                      newSumary[project.id] = false
+                      return newSumary
+                    })}
+                  >
+                    {summary[project.id] && (
+                      <div className="p-4 text-white absolute bottom-0 m-4 gap-5 grid">
+                        <h2 className="text-3xl font-bold text-align-left">
+                          {project.title}
+                        </h2>
+                        <p className="">{project.summary}</p>
+                        <div className="flex flex-wrap gap-3">
+                          {project.technologies.map((technology, index) => (
+                            <div
+                              key={index} // Always add a key to mapped elements
+                              className="rounded-xl bg-gray-500 bg-opacity-90 p-1 relative"
+                            >
+                              <p className="text-[#FFFFFF] no-opacity">
+                                <b>{technology}</b>
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           );
         })}
         <div
-          className={`sidebar ${
-            toggleSummary ? "sidebar-appear" : ""
-          } bg-base-100`}
+          className={`sidebar ${toggleSummary ? "sidebar-appear" : ""
+            } bg-base-100`}
         >
           <div className="sticky top-0 left-0 pt-6 pr-6 pl-6 pb-4 right-0 bg-base-100 w-full">
             <div className="justify-between flex" >
@@ -301,10 +317,9 @@ function Projects() {
             >
               <p
                 onMouseEnter={() => setToggleOpenProject(true)}
-                className={`h-fit ${
-                  toggleOpenProject &&
+                className={`h-fit ${toggleOpenProject &&
                   "border-b-[1.5px] border-[currentColor] leading-tight"
-                }`}
+                  }`}
               >
                 <b>Open Project</b>
               </p>
