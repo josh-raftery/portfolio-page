@@ -15,8 +15,6 @@ export default function Contact() {
     message: false
   })
 
-  // const [error,setError] = useState(false)
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setFormError((currFormError) => {
