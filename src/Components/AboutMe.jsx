@@ -14,10 +14,10 @@ function AboutMe() {
       <TypeAboutMe/>
       <div className="aboutme-text">
         <h2 className="about-me-text" >
-          I'm an experienced Software Developer who has transitioned into web development in the last year.
+          I'm an experienced Software Developer, seeking emplyment in New Zealand.
         </h2>
         <h2 className="about-me-text">
-          I have discovered a real passion in the marriage of problem solving and design.
+          I have a passion in the marriage of problem solving and design.
         </h2>
         <h2 className="about-me-text">
           <Link to="/projects" ><a className="link link-success">Here</a></Link> is a showcase of what I have been able to create as a full-stack
