@@ -24,7 +24,7 @@ export default function Resume() {
           <iframe
             className={"pdf w-[850px]"}
             height="1000"
-            src={`/assets/programming_resume.pdf#toolbar=0&navpanes=0`}
+            src={`/assets/Resume.pdf#toolbar=0&navpanes=0`}
           ></iframe>
         </div>
       </div>
